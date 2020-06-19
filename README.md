@@ -2,7 +2,7 @@
 ## Methods to compute generalization error bounds using Scenario Theory
 
  P^N[V(d*)>ε] < β
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;P^N[V(d^\star)>\epsilon(s_N^\star)]\leq \beta" title="\Large P^N[V(d^\star)>\epsilon(s_N^\star)]\leq \beta" />
 
 
 # Generalization bound for non-convex Scenario programs 
