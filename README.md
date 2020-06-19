@@ -1,7 +1,8 @@
 ### Scenario-Theory-Py-Generalization-Assessment-Methods
 ## Methods to compute generalization error bounds using Scenario Theory
 
- Prob[V(d*)>ε] < &beta 
+ P^N[V(d*)>ε] < β
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 # Generalization bound for non-convex Scenario programs 
 Derived and applied in:
