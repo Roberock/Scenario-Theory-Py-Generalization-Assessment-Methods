@@ -27,7 +27,7 @@ Bounds derived and applied in:
 Bounds derived and applied in:
  - [] Campi, Marco & Garatti, Simone. (2016). Wait-and-judge scenario optimization. 
       Mathematical Programming. https://doi.org/10.1007/s10107-016-1056-9
- - []
+ - [] Carè, A., Garatti, S. & Campi, M.C. The wait-and-judge scenario approach applied to antenna array design. Comput Manag Sci 16, 481–499 (2019). https://doi.org/10.1007/s10287-019-00345-5
 
 # Sample-and-discard convex programs (a-priori)
- - []
+ - [] Campi, M.C., Garatti, S. A Sampling-and-Discarding Approach to Chance-Constrained Optimization: Feasibility and Optimality. J Optim Theory Appl 148, 257–280 (2011). https://doi.org/10.1007/s10957-010-9754-6
