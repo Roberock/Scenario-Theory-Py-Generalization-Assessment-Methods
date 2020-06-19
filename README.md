@@ -2,10 +2,10 @@
 ## Methods to compute generalization error bounds using Scenario Theory
 
 Violation probability for the optimized desing 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space; V(d^\star)=\mathbb{P}[\delta \in \Delta: g(d^\star,\delta)>0]" title="\Large \mathbb{P}[\delta \in \Delta: g(d^\star,\delta)>0]" />
+<img src="https://latex.codecogs.com/svg.latex?\Large&space; V(d^\star)=P[\delta \in \Delta: g(d^*,\delta)>0]" title="\Large \mathbb{P}[\delta \in \Delta: g(d^\star,\delta)>0]" />
 
 Scenario-based bounds on the violation probability 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space; \mathbb{P}^N[V(d^\star)>\epsilon(s_N^\star)]\leq \beta" title="\Large P^N[V(d^\star)>\epsilon(s_N^\star)]\leq \beta" />
+<img src="https://latex.codecogs.com/svg.latex?\Large&space; P^N[V(d^\star)>\epsilon(s_N^*)]\leq \beta" title="\Large P^N[V(d^\star)>\epsilon(s_N^\star)]\leq \beta" />
 
 
 ## Types of bounds ε
