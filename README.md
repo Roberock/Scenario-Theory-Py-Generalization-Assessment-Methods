@@ -1,9 +1,9 @@
-###Scenario-Theory-Py-Generalization-Assessment-Methods
-##Methods to compute generalization error bounds using Scenario Theory
+### Scenario-Theory-Py-Generalization-Assessment-Methods
+## Methods to compute generalization error bounds using Scenario Theory
 
+ Prob[V(d*)>ε] < &beta 
 
-
-# Bound ε for non-convex Scenario programs 
+# Generalization bound for non-convex Scenario programs 
 Derived and applied in:
   - [] M. C. Campi, S. Garatti and F. A. Ramponi, "A General Scenario Theory for Nonconvex Optimization and Decision Making," in IEEE   Transactions on Automatic Control, vol. 63, no. 12, pp. 4067-4078, Dec. 2018, https://ieeexplore.ieee.org/document/8299432
   
