@@ -3,7 +3,7 @@
 
 
 
-# Bound $\epsilon$ for non-convex Scenario programs 
+# Bound ε for non-convex Scenario programs 
 Derived and applied in:
   - [] M. C. Campi, S. Garatti and F. A. Ramponi, "A General Scenario Theory for Nonconvex Optimization and Decision Making," in IEEE   Transactions on Automatic Control, vol. 63, no. 12, pp. 4067-4078, Dec. 2018, https://ieeexplore.ieee.org/document/8299432
   
@@ -20,6 +20,4 @@ Derived and applied in:
 % [] 
 % []
 
-
-
-  &epsilon<sub>&k</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
+ 
