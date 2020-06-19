@@ -2,7 +2,8 @@
 ## Methods to compute generalization error bounds using Scenario Theory
 
  P^N[V(d*)>ε] < β
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+
 
 # Generalization bound for non-convex Scenario programs 
 Derived and applied in:
