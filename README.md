@@ -17,12 +17,14 @@ Bounds derived and applied in:
 
 # Upper and lower bounds for convex scenario program with relaxed constraints
 Bounds derived and applied in:
- -  [] 
+ -  [] Garatti, Simone & Campi, Marco. (2019). Risk and complexity in scenario optimization. 
+        Mathematical Programming. https://doi.org/10.1007/s10107-019-01446-4
  -  []
 
 # Wait and Judge bound
 Bounds derived and applied in:
- - [] 
+ - [] Campi, Marco & Garatti, Simone. (2016). Wait-and-judge scenario optimization. 
+      Mathematical Programming. https://doi.org/10.1007/s10107-016-1056-9
  - []
 
  
