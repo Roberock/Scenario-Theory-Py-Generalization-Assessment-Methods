@@ -3,9 +3,16 @@ import scipy.special
 import numpy as numpy 
 
 def getepsilon_nonconvex(k,N,beta): 
- # k= Number of support scenarios
- # N= Number of scenarios in the dataset
- # beta= s small confidence parameter (beta=10^-8 means high confidence level)   
+    """Compute upper bound for non-convex scenario programs. 
+    Inputs
+    ----------
+    k: Number of support scenarios
+    N: Number of scenarios in the dataset
+    beta: a small confidence parameter (beta=10^-8 means high confidence level)  
+    Returns
+    -------
+    epsil : upper bound on the violation probability
+    """ 
     if k < N:
     #  this is numerically for high N and k
     #  epsilon=1-(beta./(N.*nchoosek(N,k))).^(1/(N-k));
@@ -22,10 +29,16 @@ def getepsilon_nonconvex(k,N,beta):
     return epsil  
 
 def getepsilon_relaxedConstraints(k,N,bet):  
- # Compute lower and upper bounds on the probability of violation  for future scenarios
- # k = Number of support scenarios (scenarios delta_i for which the optimal design d* leads to a violation g(d*,delta_i)>=0 )
- # N = Number of scenarios in the dataset used to compute the optimal design d*
- # beta = a small confidence parameter (beta=10^-8 means high confidence level) 
+    """Compute upper bound for convex scenario programs wit soft-constraints. 
+    Inputs
+    ----------
+    k: Number of support scenarios
+    N: Number of scenarios in the dataset
+    beta: a small confidence parameter (beta=10**-8 means high confidence level)  
+    Returns
+    -------
+    epsL,epsU : lower and upper bound on the violation probability
+    """ 
     alphaL = scipy.special.betaincinv(k,N-k+1,bet)
     alphaU = 1- scipy.special.betaincinv(N-k+1,k,bet) 
     Temp=numpy.log(range(k,N+1))
@@ -40,15 +53,12 @@ def getepsilon_relaxedConstraints(k,N,bet):
     #Temp=numpy.sort(Temp)[::-1]
     CUMSUM=numpy.cumsum(numpy.sort(Temp)[::-1])
     CUMSUM[-1]=0
-    aux2=numpy.sort(CUMSUM)[::-1] 
-    Temp=numpy.log(range(N+1,4*N+1)) 
-    Temp=numpy.sort(Temp)  
+    aux2=numpy.sort(CUMSUM)[::-1]
+    Temp=numpy.sort(numpy.log(range(N+1,4*N+1)))  
     aux3=numpy.sort(numpy.cumsum(Temp))  # auxiliary variables 3 
-    Temp=numpy.log(range(N+1,4*N+1) ) 
-    Temp=numpy.sort(Temp)  
-    aux3=numpy.sort(numpy.cumsum(Temp))  
-    Temp=numpy.log(range(N+1-k,4*N+1-k)) 
-    Temp=numpy.sort(Temp)  
+    Temp=numpy.sort(numpy.log(range(N+1,4*N+1)))  
+    aux3=numpy.sort(numpy.cumsum(Temp))
+    Temp=numpy.sort(numpy.log(range(N+1-k,4*N+1-k)))  
     aux4=numpy.sort(numpy.cumsum(Temp))  # auxiliary variables 4 
     coeffs1 = aux2-aux1 
     coeffs2= aux3-aux4 
@@ -85,3 +95,23 @@ def getepsilon_relaxedConstraints(k,N,bet):
     #epsilon=(epsL,epsU) # resulting lower and upper bound on the violation probability
     return (epsL,epsU)
 
+### Sample-and-discard bounds
+def getepsilon_apriori_convex_discard(k,N,beta,Nd): 
+    """Plot the decision boundaries for a classifier. 
+    Parameters
+    ----------
+     k: Number of samples removed from the data set
+     N: Number of scenarios in the dataset
+     beta: s small confidence parameter (beta=10^-8 means high confidence level)   
+     Nd: Nuber of dimensions of the decision variables"""
+    
+    EPSILON= numpy.linspace(0.0001,0.9999,10**4)
+    BETA=0
+    for j in range(0,k+Nd):
+        BETA=BETA+scipy.special.binom(N,j)*EPSILON**j*(1-EPSILON)**(N-j)
+    
+    BETA=BETA*scipy.special.binom(k+Nd-1,k);
+    Temp=EPSILON[(BETA<=beta)]
+    epsil=Temp[0] 
+    
+    return epsil
