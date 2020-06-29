@@ -1,3 +1,20 @@
 
 Python class for scenario bounds computation
 
+
+### Example
+import ScenarioGeneralizationBounds as scbn
+
+beta=10**-6 # confidence level
+N=1000 # number of samples
+sn= 10 # number of support constraints
+
+## A-posteriori methods
+scbn.getepsilon_nonconvex(sn,N,beta) 
+SBn.getepsilon_relaxedConstraints(sn,N,beta)
+scbn.getepsilon_aposteriori_convex_wej(sn,N,beta)
+
+## A-priori methods
+K=2 # number of samples discarded from the data base
+Nd= 4 # number of optimization variables
+scbn.getepsilon_apriori_convex_discard(K,N,beta,Nd)
