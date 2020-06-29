@@ -95,10 +95,10 @@ def getepsilon_relaxedConstraints(k,N,bet):
     #epsilon=(epsL,epsU) # resulting lower and upper bound on the violation probability
     return (epsL,epsU)
 
-### Sample-and-discard bounds
+### Sample-and-discard bounds (a-priori)
 def getepsilon_apriori_convex_discard(k,N,beta,Nd): 
-    """Plot the decision boundaries for a classifier. 
-    Parameters
+    """Compute upper bound for convex scenario programs wit k discarded samples
+    Inputs
     ----------
      k: Number of samples removed from the data set
      N: Number of scenarios in the dataset
@@ -115,3 +115,35 @@ def getepsilon_apriori_convex_discard(k,N,beta,Nd):
     epsil=Temp[0] 
     
     return epsil
+
+
+
+## A-posteriori wait and judge methods
+
+def getepsilon_aposteriori_convex_wej(k,N,bet):
+    """Compute upper bound for convex scenario programs wit k discarded samples
+    Inputs
+    ----------
+     k: Number of support scenario constraints
+     N: Number of scenarios in the dataset
+     beta: s small confidence parameter (beta=10^-8 means high confidence level)"""
+    
+    out = numpy.zeros(k+1) 
+    for i in range(0,k+1):
+       m = numpy.array(range(i,N+1))
+       Temp=numpy.sort(numpy.log(range(i+1,N+1)))[::-1]  
+       aux1=numpy.append(numpy.sort(numpy.cumsum(Temp))[::-1], [0])  # auxiliary variables 3 
+       Temp=numpy.sort(numpy.log(range(1,N-i+1)))[::-1]
+       aux2=numpy.append(numpy.sort(numpy.cumsum(Temp))[::-1], [0]) # auxiliary variables 3  
+       coeffs = aux2-aux1  
+       t1 = 0 
+       t2 = 1 
+       while t2-t1 > 1e-10:
+           t = (t1+t2)/2;
+           val = 1 - bet/(N+1)*numpy.sum(numpy.exp(coeffs-(N-m)*numpy.log(t)));
+           if val >= 0:
+               t2 = t   
+           elif val < 0:
+               t1 = t 
+       out[i] = 1-t1 
+    return out 
